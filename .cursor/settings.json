@@ -1,0 +1,8 @@
+{
+  "mcp": {
+    "enabled": true,
+    "server": {
+      "url": "http://localhost:7777"
+    }
+  }
+} 

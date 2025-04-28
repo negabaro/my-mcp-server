@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { createLogger } from "./utils/logger";
 import gitRouter from "./routes/git";
+import mcpRouter from "./routes/mcp";
 
 // Load environment variables
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/git", gitRouter);
+app.use("/mcp", mcpRouter);
 
 // Basic route
 app.get("/", (req, res) => {

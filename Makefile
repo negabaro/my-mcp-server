@@ -1,4 +1,4 @@
-.PHONY: install build start dev test lint format clean git-add git-commit git-status
+.PHONY: install build start dev test lint format clean git-add git-commit git-status test-command
 
 install:
 	npm install
@@ -27,14 +27,20 @@ clean:
 
 # Git commands
 git-add:
-	curl -X POST http://localhost:7777/git/add \
+	curl -X POST http://localhost:7777/mcp/v1/execute \
 		-H "Content-Type: application/json" \
-		-d '{"files": ["$(files)"]}'
+		-d '{"command": "git_add", "parameters": {"files": ["$(files)"]}}'
 
 git-commit:
-	curl -X POST http://localhost:7777/git/commit \
+	curl -X POST http://localhost:7777/mcp/v1/execute \
 		-H "Content-Type: application/json" \
 		-d '{"message": "$(message)"}'
 
 git-status:
-	curl http://localhost:7777/git/status 
+	curl http://localhost:7777/mcp/v1/execute \
+		-H "Content-Type: application/json" \
+		-d '{"command": "git_status"}'
+
+# Test command
+test-command:
+	echo "This is a test command" 
