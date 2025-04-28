@@ -1,17 +1,21 @@
 import express from "express";
 import dotenv from "dotenv";
 import { createLogger } from "./utils/logger";
+import gitRouter from "./routes/git";
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 7777;
 const logger = createLogger();
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use("/git", gitRouter);
 
 // Basic route
 app.get("/", (req, res) => {

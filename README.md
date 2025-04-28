@@ -10,11 +10,13 @@ A Master Control Program (MCP) server built with Node.js and TypeScript.
 - Environment configuration
 - ESLint and Prettier for code quality
 - Jest for testing
+- Git integration
 
 ## Prerequisites
 
 - Node.js (v16 or higher)
 - npm (v7 or higher)
+- Git
 
 ## Installation
 
@@ -52,6 +54,53 @@ Server is running on port 7777
 
 If you can confirm both of these, your server is running successfully.
 
+## Git Commands
+
+The server provides Git integration through the following commands:
+
+### Add Files
+```bash
+make git-add files="file1.txt file2.txt"
+```
+
+### Commit Changes
+```bash
+make git-commit message="Your commit message"
+```
+
+### Check Git Status
+```bash
+make git-status
+```
+
+Example workflow:
+```bash
+# Check current status
+make git-status
+
+# Add modified files
+make git-add files="src/index.ts src/utils/git.ts"
+
+# Commit changes
+make git-commit message="Update Git integration"
+```
+
+## Development
+
+To start the development server:
+```bash
+make dev
+```
+
+To build the project:
+```bash
+make build
+```
+
+To start the production server:
+```bash
+make start
+```
 
 ## Testing
 
